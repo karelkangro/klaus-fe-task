@@ -33,10 +33,7 @@
       </span>
     </div>
 
-    <div
-      v-if="isAllUsersEdited"
-      :class="['edit-user', { 'edit-user--bulk': isAllUsersEdited }]"
-    >
+    <div :class="['edit-user', { 'edit-user--bulk': isAllUsersEdited }]">
       <div class="edit-user__header">
         <p>Show users from:</p>
         <input type="text" v-model="filterUsers.from" /> to:
@@ -210,20 +207,21 @@ export default {
         to: 10
       },
       visibleUsers: computed(() => {
-        if (!state.users) return;
+        if (!state.users.length) return;
 
         const list = state.users.slice(
           state.showUsers.from,
           state.showUsers.to
         );
 
-        if (state.searchQuery)
-          list.filter(user =>
-            user.name.toLowerCase().includes(state.searchQuery.toLowerCase())
-          );
-
         if (state.isUsersFilteredByRole)
-          return sortArrayByObjectKeys([...list], "role");
+          return sortArrayByObjectKeys(list, "role");
+
+        if (state.searchQuery) {
+          return list.filter(item =>
+            item.name.toLowerCase().includes(state.searchQuery.toLowerCase())
+          );
+        }
 
         return list;
       }),
