@@ -65,6 +65,9 @@ button {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 h1 {
