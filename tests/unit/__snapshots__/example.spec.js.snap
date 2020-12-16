@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal.vue renders modal when isOpen prop is true 1`] = `
+<div class="modal">
+  <div class="modal__content">
+    <div class="modal__body"></div>
+    <div class="modal__footer"><button></button></div>
+  </div>
+</div>
+`;
+
+exports[`Modal.vue renders modal when isOpen prop is true 2`] = `
+<div class="modal">
+  <div class="modal__content">
+    <div class="modal__body"></div>
+    <div class="modal__footer"><button></button></div>
+  </div>
+</div>
+`;
